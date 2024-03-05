@@ -1,0 +1,14 @@
+# Recognize named entities from token itself
+u:X=%x[0,0]
+
+# Exclude named entities with certain PoS tags
+u:PoS X=%x[0,1] & !{TO, VBZ}
+
+# Consider word and its PoS jointly for named entity recognition
+u:foo=%x[0,0]/%x[0,1]
+
+# Identify named entities in all capital letters
+u:AllC? X=%t[0,0,"^[A-Z]+$"]
+
+# Identify named entities starting with a capital letter
+u:BegC? X=%t[0,0,"^[A-Z]"]
